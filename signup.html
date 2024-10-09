@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700&family=Figtree:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Link to your CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="pic2"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Woxsen.png" alt="Woxsen University">
+        <h1>Welcome To League</h1>
+
+        <div class="inp">
+            <input type="text" id="username">
+            <label onclick="focusinp('usr')" for="username">Username</label>
+        </div>
+        <div class="inp">
+            <input type="text" id="email">
+            <label onclick="focusinp('email')" for="email">Email</label>
+        </div>
+
+        <div class="inp">
+            <input type="password" id="password">
+            <label onclick="focusinp('pass')" for="password">Password</label>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="inp">
+            <input type="text" id="mobile">
+            <label onclick="focusinp('mobile')" for="mobile">Mobile Number</label>
+        </div>
+
+        <!-- Branch dropdown -->
+        <div class="inp">
+            <label for="branch">Branch</label>
+            <select id="branch">
+                <option value="BBA">BBA</option>
+                <option value="BTech">B.Tech</option>
+                <option value="BArch">B.Arch</option>
+                <option value="BA">BA</option>
+                <option value="BDesign">B.Design</option>
+                <option value="LLB">LLB</option>
+            </select>
+        </div>
+
+        <!-- Gender -->
+        <div class="inp">
+            <label>Gender</label>
+            <div>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="Other">
+                <label for="other">Other</label>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <a href="">Forgot Password? - Support</a>
+        </div>
+
+        <button type="submit">Signup</button>
+        <a onclick="myFunction()" href="index.html">Have an account? Log In</a>
+    </div>
+
+    <div class="pic"></div>
+
+    <!-- Link to your JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

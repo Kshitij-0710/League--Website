@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>League Woxsen - Booking</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="Book your favorite sports courts at League Woxsen">
+    <meta name="keywords" content="Booking, Sports, Courts, League Woxsen">
+    <meta name="author" content="Kshitij">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="css/aos.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+
+    <!-- Optional: Include a custom stylesheet for additional styles -->
+    <style>
+        body {
+            padding-top: 80px; /* To prevent navbar from overlapping content */
+        }
+        .booking-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        .booking-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .booking-form h2 {
+            margin-bottom: 30px;
+        }
+        .price-tag {
+            font-size: 1.2em;
+            color: #ef495d;
+            margin-top: 10px;
+        }
+        .submit-btn {
+            background-color: #ef495d;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            color: #fff;
+            font-size: 1.1em;
+            border-radius: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #ef495d;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">League Woxsen</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link smoothScroll">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="home.html#feature" class="nav-link smoothScroll">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="home.html#about" class="nav-link smoothScroll">Events</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="home.html#class" class="nav-link smoothScroll">Facilities</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="home.html#schedule" class="nav-link smoothScroll">Booking</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="proshop.html" class="nav-link smoothScroll">Pro Shop</a>
+                    </li>
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="booking-form" data-aos="fade-up">
+                        <h2 class="text-center">Book Your Court</h2>
+                        <form action="/book_court/" method="POST">
+                            <!-- CSRF Token (Django) -->
+                            
+
+                            <!-- Select Sport -->
+                            <div class="form-group">
+                                <label for="sport">Select Sport</label>
+                                <select class="form-control" id="sport" name="sport" required>
+                                    <option value="" disabled selected>Choose a sport</option>
+                                    <option value="badminton">Badminton</option>
+                                    <option value="tennis">Tennis</option>
+                                    <option value="basketball">Basketball</option>
+                                    <option value="volleyball">Volleyball</option>
+                                    <option value="box_cricket">Box Cricket</option>
+                                    <option value="football">Football</option>
+                                </select>
+                            </div>
+
+                            <!-- Select Court Number -->
+                            <div class="form-group">
+                                <label for="court_number">Select Court Number</label>
+                                <select class="form-control" id="court_number" name="court_number" required>
+                                    <option value="" disabled selected>Choose a court number</option>
+                                    <!-- Options will be populated based on selected sport via JavaScript -->
+                                </select>
+                            </div>
+
+                            <!-- Select Date -->
+                            <div class="form-group">
+                                <label for="booking_date">Select Date</label>
+                                <input type="date" class="form-control" id="booking_date" name="booking_date" required min="{{ today }}">
+                            </div>
+
+                            <!-- Select Time Slot -->
+                            <div class="form-group">
+                                <label for="time_slot">Select Time Slot</label>
+                                <select class="form-control" id="time_slot" name="time_slot" required>
+                                    <option value="" disabled selected>Choose a time slot</option>
+                                    <!-- Generate time slots from 9 AM to 9 PM -->
+                                    {% for hour in 9..20 %}
+                                        <option value="{{ hour }}:00">{{ hour }}:00 - {{ hour+1 }}:00</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="price-tag">
+                                Price: ₹150 per hour
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="submit-btn">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional: Footer -->
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 League Woxsen. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+
+    <!-- Additional JavaScript for Dynamic Court Selection -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sportSelect = document.getElementById('sport');
+            const courtSelect = document.getElementById('court_number');
+            const timeSlotSelect = document.getElementById('time_slot');
+            const bookingDate = document.getElementById('booking_date');
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            bookingDate.setAttribute('min', today);
+
+            const courts = {
+                badminton: 5,       // Courts 1-5
+                tennis: 2,          // Courts 1-2
+                basketball: 4,      // Courts 1-4
+                volleyball: 2,      // Courts 1-2
+                box_cricket: 2,     // Courts 1-2
+                football: 2         // Courts 1-2
+            };
+
+            const generateTimeSlots = () => {
+                timeSlotSelect.innerHTML = '<option value="" disabled selected>Choose a time slot</option>';
+                for(let hour = 9; hour < 21; hour++) {
+                    const option = document.createElement('option');
+                    const displayHour = hour > 12 ? hour - 12 + ' PM' : hour + ' AM';
+                    const endHour = (hour + 1) > 12 ? (hour + 1) - 12 + ' PM' : (hour + 1) + ' AM';
+                    option.value = `${hour}:00`;
+                    option.text = `${displayHour} - ${endHour}`;
+                    timeSlotSelect.appendChild(option);
+                }
+            };
+
+            // Initialize time slots on page load
+            generateTimeSlots();
+
+            sportSelect.addEventListener('change', function() {
+                const selectedSport = this.value;
+                const numberOfCourts = courts[selectedSport];
+                courtSelect.innerHTML = '<option value="" disabled selected>Choose a court number</option>';
+
+                for(let i = 1; i <= numberOfCourts; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.text = `Court ${i}`;
+                    courtSelect.appendChild(option);
+                }
+            });
+
+            // Handle form submission (frontend only)
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Your booking has been submitted successfully!');
+                // Reset the form after submission
+                bookingForm.reset();
+                courtSelect.innerHTML = '<option value="" disabled selected>Choose a court number</option>';
+                timeSlotSelect.innerHTML = '<option value="" disabled selected>Choose a time slot</option>';
+                generateTimeSlots();
+            });
+        });
+    </script>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
