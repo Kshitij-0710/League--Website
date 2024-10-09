@@ -3,79 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700&family=Figtree:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Link to your CSS -->
+    <title>Sign Up</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="pic2"></div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Woxsen.png" alt="Woxsen University">
-        <h1>Welcome To League</h1>
-
-        <div class="inp">
-            <input type="text" id="username">
-            <label onclick="focusinp('usr')" for="username">Username</label>
+    <div class="overlay"></div>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h1>Sign Up</h1>
+            <form action="/submit" method="post">
+                <!-- Username -->
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <!-- Email -->
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <!-- Password -->
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <!-- Confirm Password -->
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <!-- Mobile -->
+                <div class="input-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="Enter 10 digit number" required>
+                </div>
+                <!-- Branch -->
+                <div class="input-group">
+                    <label for="branch">Branch</label>
+                    <select id="branch" name="branch" required>
+                        <option value="" disabled selected>Select your Branch</option>
+                        <option value="Btech">B.Tech</option>
+                        <option value="BBA">BBA</option>
+                        <option value="Bdesign">B.Design</option>
+                        <option value="Barch">B.Arch</option>
+                        <option value="BA Law">BA Law</option>
+                    </select>
+                </div>
+                <!-- Gender -->
+                <div class="input-group gender-group">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label>
+                            <input type="radio" name="gender" value="male" required> Male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female" required> Female
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="other" required> Other
+                        </label>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="index.html">Log In</a></p>
         </div>
-        <div class="inp">
-            <input type="text" id="email">
-            <label onclick="focusinp('email')" for="email">Email</label>
-        </div>
-
-        <div class="inp">
-            <input type="password" id="password">
-            <label onclick="focusinp('pass')" for="password">Password</label>
-        </div>
-
-        <!-- Mobile Number -->
-        <div class="inp">
-            <input type="text" id="mobile">
-            <label onclick="focusinp('mobile')" for="mobile">Mobile Number</label>
-        </div>
-
-        <!-- Branch dropdown -->
-        <div class="inp">
-            <label for="branch">Branch</label>
-            <select id="branch">
-                <option value="BBA">BBA</option>
-                <option value="BTech">B.Tech</option>
-                <option value="BArch">B.Arch</option>
-                <option value="BA">BA</option>
-                <option value="BDesign">B.Design</option>
-                <option value="LLB">LLB</option>
-            </select>
-        </div>
-
-        <!-- Gender -->
-        <div class="inp">
-            <label>Gender</label>
-            <div>
-                <input type="radio" id="male" name="gender" value="Male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="Female">
-                <label for="female">Female</label>
-                <input type="radio" id="other" name="gender" value="Other">
-                <label for="other">Other</label>
-            </div>
-        </div>
-
-        <div style="display: flex;">
-            <a href="">Forgot Password? - Support</a>
-        </div>
-
-        <button type="submit">Signup</button>
-        <a onclick="myFunction()" href="index.html">Have an account? Log In</a>
     </div>
-
-    <div class="pic"></div>
-
-    <!-- Link to your JavaScript -->
-    <script src="script.js"></script>
 </body>
 </html>
